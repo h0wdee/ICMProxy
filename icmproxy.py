@@ -2,7 +2,7 @@
 import socket
 import struct
 
-HOST = '192.168.1.10'
+HOST = '0.0.0.0'
 
 """
 ICMP Packet Header Spec

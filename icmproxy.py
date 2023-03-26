@@ -40,5 +40,5 @@ if __name__ == '__main__':
     server.bind((HOST, 0))
     server.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
     packet, address = server.recvfrom(65535)
-
+    # first 20 bytes are IP
     parse(packet[20:32], address)

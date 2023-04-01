@@ -41,15 +41,15 @@ def parse(packet, address):
 
 
 if __name__ == '__main__':
-    # make listening socket (this only catches inbound traffic)
+    # outbound packet
     server = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.IPPROTO_ICMP) # our proxy
     server.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
     # client = socket.socket(socket.AF_INET, socket.SOCK_RAW, IPPROTO_ICMP) # where proxy forwards pings to
     server.bind((HOST, 0))
 
-    # now we need to catch things being returned to us?
+    # now we need to catch things being returned to us
+    # this will need another thread
 
-    # actually sniffing now lol
     try:
         while True:
             packet, address = server.recvfrom(65535)
